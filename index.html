@@ -77,6 +77,29 @@
   left: 70%;
   animation: animate 12s linear infinite;
 }
+.btn {
+	color: #eee;
+	font-size: 27px;
+	display: block;
+	position: absolute;
+	z-index: 99999999;
+	background: rgb(237, 144, 144);
+	outline: none;
+	border: none;
+	padding: 6px 19px;
+	top: 90%;
+	left: 50%;
+	font-family: 'Poppins', sans-serif;
+	font-weight: bold;
+	transform: translateX(-50%);
+	/* transform: translatey(-50%); */
+	cursor: pointer;
+	border-radius: 7px;
+	border: 3px solid rgb(237, 144, 144);
+}
+.btn:hover{
+	background: none;
+}
 .box div:nth-child(7){
   top: 60%;
   left: 80%;
@@ -111,7 +134,7 @@
 </head>
 <body>
 
-<audio autoplay src="jaz1.mp3"></audio>
+<audio id="music" src="jaz1.mp3"></audio>
   <div id="container"></div>
   <a href="" class="hidden"></a>
   	<div class="wrapper">
@@ -128,20 +151,28 @@
     <div></div>
     </div>
   </div>
+
+  <button class="btn" onclick="mulai()">Start</button>
  <script>
   	var fontSize = 40;
   	if (window.screen.width > 700) 
   		fontSize = 55 ;
   	else if (window.screen.width > 1200)
   		fontSize = 80; 
-  	var vara = new Vara(
+
+	let vara;
+	function mulai() {
+
+		const audio = document.getElementById('music')
+		audio.play()
+		vara = new Vara(
   		"#container",
   		"https://raw.githubusercontent.com/akzhy/Vara/master/fonts/Satisfy/SatisfySL.json",
   		[
   			{
   				text : "Bersama mu",
   				y: 150,
-         	 	delay : 900,
+         	 	delay : 600,
   				fromCurrentPosition: {y:false},
   				duration:1700
   		},
@@ -149,7 +180,7 @@
   			text : "Ku akan dicintai dengan tulus",
   			y: 150,
   			fromCurrentPosition: {y:false},
-  			delay:1000,
+  			delay:800,
   			duration:2000
   		},
 		{
@@ -207,6 +238,9 @@
   			}
   		});
   	});
+	}
+
+  	
 
   </script>
 </body>
